@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyString
+  domain: one
+  common_word: one
+
+two:
+  content: MyString
+  domain: two
+  common_word: two
