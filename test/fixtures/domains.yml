@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  descript: MyText
+  domain_type: one
+
+two:
+  name: MyString
+  descript: MyText
+  domain_type: two

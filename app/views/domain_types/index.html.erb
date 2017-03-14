@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Domain Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @domain_types.each do |domain_type| %>
+      <tr>
+        <td><%= domain_type.name %></td>
+        <td><%= domain_type.description %></td>
+        <td><%= link_to 'Show', domain_type %></td>
+        <td><%= link_to 'Edit', edit_domain_type_path(domain_type) %></td>
+        <td><%= link_to 'Destroy', domain_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Domain Type', new_domain_type_path %>

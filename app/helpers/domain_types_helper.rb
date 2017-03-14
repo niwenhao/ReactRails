@@ -1,0 +1,2 @@
+module DomainTypesHelper
+end
