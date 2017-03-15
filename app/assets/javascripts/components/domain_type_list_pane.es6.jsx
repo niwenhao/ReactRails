@@ -38,9 +38,14 @@ class DomainTypeListPane extends React.Component {
       });
   }
 
+  select_type(type) {
+    this.setState({ type: type });
+    this.props.onselected(type);
+  }
+
   render () {
     const typeCont = this.state.typeList.map((value) => 
-        <DomainTypeItem key={value.id} type={value} onselected={this.props.onselected} />
+        <DomainTypeItem key={value.id} type={value} onselected={(type) => { this.select_type(type) }} />
         );
     return (
       <div>
