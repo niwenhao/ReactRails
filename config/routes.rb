@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'dictionary_tool/domain_type_tool'
+
+  get 'dictionary_tool/domain_tool'
+
+  get 'dictionary_tool/word_tool'
+
   resources :domain_types do
     resources :domains do
       resources :words
