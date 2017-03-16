@@ -66,7 +66,13 @@ class DomainTypeEdit extends React.Component {
     xhr.done((data, status, x) => {
         this.props.oncommited(); 
       }).fail((x, status, err) => { 
-        console.error(err);
+        console.log("status : " + status);
+        console.log(x.status + ":" + x.responseText);
+        switch(x.status) {
+          case 422:
+            alert("ERROR : " + x.responseText);
+            break;
+        }
       });
   }
 

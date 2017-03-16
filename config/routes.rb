@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :system_users
   get 'dictionary_tool/domain_type_tool'
 
   get 'dictionary_tool/domain_tool'

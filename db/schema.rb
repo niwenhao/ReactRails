@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170314160018) do
+ActiveRecord::Schema.define(version: 20170316171319) do
 
   create_table "domain_types", force: :cascade do |t|
     t.string   "name"
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(version: 20170314160018) do
     t.datetime "updated_at",     null: false
     t.boolean  "is_common"
     t.index ["domain_type_id"], name: "index_domains_on_domain_type_id"
+  end
+
+  create_table "system_users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "mail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "words", force: :cascade do |t|
