@@ -42,7 +42,32 @@ class DomainTypeEdit extends React.Component {
   save() {
     console.log("typeName = " + this.state.name);
     console.log("typeDescription = " + this.state.description);
-    this.props.oncommited();
+
+    let xhr = null;
+
+    if (this.props.type == null) {
+      xhr = $.ajax({
+        url:"domain_types.json",
+        method: "POST",
+        contentType: "application/json",
+        data: JSON.stringify({ domain_type: { name: this.state.name, description: this.state.description } }),
+        dataType:"json"
+      });
+    } else {
+      xhr = $.ajax({
+        url: "domain_types/" + this.props.type.id + ".json",
+        contentType: "application/json",
+        data: JSON.stringify({ domain_type: { name: this.state.name, description: this.state.description } }),
+        method: "PUT",
+        dataType: "json"
+      });
+    }
+
+    xhr.done((data, status, x) => {
+        this.props.oncommited(); 
+      }).fail((x, status, err) => { 
+        console.error(err);
+      });
   }
 
   render () {

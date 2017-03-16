@@ -10,32 +10,11 @@ class DomainTypeListPane extends React.Component {
   }
 
   fetch() {
-    console.log("try to fetch /domain_types");
-    const pro = new Promise(
-      (resolve, reject) => {
-        const xhr = new XMLHttpRequest();
-        xhr.open("GET", "domain_types.json");
-        xhr.onload = () => {
-          if (xhr.readyState === 4 && xhr.status === 200) {
-            resolve(xhr.response);
-          } else {
-            reject(new Error(xhr.statusText));
-          }
-        };
-
-        xhr.send();
-      }
-    );
-    pro.then(
-      (value) => {
-        console.log(value);
-        this.setState({
-          typeList: JSON.parse(value),
-          type: null
-        });
-      }, (err) => {
-        console.log(err);
-      });
+    $.getJSON("domain_types.json", data => {
+        this.setState({typeList: data, type: null });
+    }).fail((xhr, status, error) => {
+      console.error(error);
+    });
   }
 
   select_type(type) {
